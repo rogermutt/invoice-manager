@@ -64,9 +64,9 @@ mongoose.connection.on('error', (err) => {
 app.set('host', process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0');
 app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080);
 
-// Replaced PUG for 
-// app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs'); // Replaced PUG  
 app.use(expressStatusMonitor());
 app.use(compression());
 app.use(sass({
